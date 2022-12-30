@@ -1,0 +1,15 @@
+package com.devhelper.stockserviceapigateway;
+
+import org.springframework.boot.SpringApplication;
+import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.cloud.client.discovery.EnableDiscoveryClient;
+
+@SpringBootApplication
+@EnableDiscoveryClient
+public class StockServiceApiGatewayApplication {
+
+	public static void main(String[] args) {
+		SpringApplication.run(StockServiceApiGatewayApplication.class, args);
+	}
+
+}
