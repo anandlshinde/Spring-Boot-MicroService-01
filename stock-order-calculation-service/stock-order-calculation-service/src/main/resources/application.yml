@@ -1,0 +1,8 @@
+spring:
+  application:
+    name: STOCK-CALCULATION-SERVICE
+
+server:
+  port: 8282
+  servlet:
+    context-path: /stock-calculation-service
