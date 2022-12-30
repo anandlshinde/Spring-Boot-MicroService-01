@@ -12,4 +12,5 @@ public class Stock {
     private Long id;
     private String name;
     private Double price;
+    private String environment;
 }

@@ -22,6 +22,7 @@ public class StockCalculationServiceImpl implements StockCalculationService {
         stockCalculation.setStockQty(stockQty);
         stockCalculation.setStockPrice(stock.getPrice());
         stockCalculation.setTotalStockPrice((stockQty*stock.getPrice()));
+        stockCalculation.setEnvironment(stock.getEnvironment());
         return stockCalculation;
     }
 }

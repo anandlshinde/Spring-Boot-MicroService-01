@@ -10,4 +10,5 @@ public class StockCalculation {
     private int stockQty;
     private Double stockPrice;
     private Double totalStockPrice;
+    private String environment;
 }

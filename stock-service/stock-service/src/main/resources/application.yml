@@ -11,12 +11,21 @@ spring:
     password: root
     driver-class-name: com.mysql.cj.jdbc.Driver
 
+
 server:
   port: 8181
-  servlet:
-    context-path: /stock-service
+  #servlet:
+    #context-path: /stock-service
 
 eureka:
+  instance:
+    #hostname: localhost
+    prefer-ip-address: true
   client:
+    enabled: true
     service-url:
-      default-zone: http://localhost:8761/eureka
+      #default-zone: http://localhost:8761/eureka
+      default-zone: ${EUREKA_URI:http://localhost:8761/eureka}
+
+
+

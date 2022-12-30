@@ -7,6 +7,7 @@ import com.devhelper.stockservice.service.StockService;
 import lombok.RequiredArgsConstructor;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.core.env.Environment;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -20,6 +21,7 @@ public class StockControllerImpl implements StockController {
     private static final Logger LOGGER= LoggerFactory.getLogger(StockControllerImpl.class);
 
     private final StockService stockService;
+    private final Environment environment;
 
     @PostMapping("/stock")
     @Override
@@ -51,7 +53,10 @@ public class StockControllerImpl implements StockController {
         Optional<Stock> stockResponse = stockService.fetchStockByName(stockName);
         if(stockResponse.isPresent()) {
             LOGGER.info("in stock service controller response= {}",stockResponse.get().getName());
-            return ResponseEntity.ok(stockResponse.get());
+            String port=environment.getProperty("local.server.port");
+            Stock stock=stockResponse.get();
+            stock.setEnvironment(port);
+            return ResponseEntity.ok(stock);
         }else {
             throw new StockNotFound("Stock not found : " + stockName);
         }
