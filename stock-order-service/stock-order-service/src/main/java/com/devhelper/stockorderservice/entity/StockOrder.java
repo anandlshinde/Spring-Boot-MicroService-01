@@ -17,7 +17,7 @@ public class StockOrder {
     private Long id;
     private LocalDateTime trDate;
     private String userId;
-    private int stockId;
+    private Long stockId;
     private String stockName;
     private String trType;
     private int stockQty;

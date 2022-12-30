@@ -21,7 +21,7 @@ public class StockOrderServiceImpl implements StockOrderService {
     public StockOrder placeStockOrder(String userId,String stockName, int stockQty) {
         StockCalculation stockCalculation = stockCalculationProxy.fetchStockDetails(stockName, stockQty).getBody();
         StockOrder stockOrder=new StockOrder();
-        stockOrder.setId(stockCalculation.getStockId());
+        stockOrder.setStockId(stockCalculation.getStockId());
         stockOrder.setStockName(stockName);
         stockOrder.setStockPrice(stockCalculation.getStockPrice());
         stockOrder.setStockQty(stockQty);

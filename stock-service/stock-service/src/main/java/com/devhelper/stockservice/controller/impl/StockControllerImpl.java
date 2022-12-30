@@ -5,6 +5,8 @@ import com.devhelper.stockservice.entity.Stock;
 import com.devhelper.stockservice.exception.StockNotFound;
 import com.devhelper.stockservice.service.StockService;
 import lombok.RequiredArgsConstructor;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -14,6 +16,8 @@ import java.util.Optional;
 @RestController
 @RequiredArgsConstructor
 public class StockControllerImpl implements StockController {
+
+    private static final Logger LOGGER= LoggerFactory.getLogger(StockControllerImpl.class);
 
     private final StockService stockService;
 
@@ -45,10 +49,12 @@ public class StockControllerImpl implements StockController {
     @Override
     public ResponseEntity<Stock> fetchStockByName(String stockName) throws StockNotFound {
         Optional<Stock> stockResponse = stockService.fetchStockByName(stockName);
-        if(stockResponse.isPresent())
+        if(stockResponse.isPresent()) {
+            LOGGER.info("in stock service controller response= {}",stockResponse.get().getName());
             return ResponseEntity.ok(stockResponse.get());
-        else
-            throw new StockNotFound("Stock not found : "+stockName);
+        }else {
+            throw new StockNotFound("Stock not found : " + stockName);
+        }
     }
 
     @PatchMapping("/stock/{stockId}")
