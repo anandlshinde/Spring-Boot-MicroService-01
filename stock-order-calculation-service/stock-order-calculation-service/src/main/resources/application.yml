@@ -1,8 +1,0 @@
-spring:
-  application:
-    name: STOCK-ORDER-CALCULATION-SERVICE
-
-server:
-  port: 8282
-  servlet:
-    context-path: /stock-calculation-service
