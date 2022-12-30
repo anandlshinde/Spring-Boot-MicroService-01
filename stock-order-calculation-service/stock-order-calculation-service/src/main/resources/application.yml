@@ -6,3 +6,8 @@ server:
   port: 8282
   servlet:
     context-path: /stock-calculation-service
+
+eureka:
+  client:
+    service-url:
+      default-zone: http://localhost:8761/eureka

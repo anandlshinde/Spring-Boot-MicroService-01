@@ -1,0 +1,13 @@
+spring:
+  application:
+    name: STOCK-SERVICE-EUREKA-SERVER
+
+server:
+  port: 8761
+  #servlet:
+    #context-path: /stock-service-eureka-service
+
+eureka:
+  client:
+    register-with-eureka: false
+    fetch-registry: false
