@@ -5,7 +5,10 @@ spring:
     config:
       server:
         git:
-          uri: C:/Users/anand/OneDrive/Documents/GitHub/Spring-Boot-MicroService-01/git-localconfig-repo
-
+          uri: https://github.com/anandlshinde/git-localconfig-repo
+          clone-on-start: true
+  profiles:
+    active: dev
 server:
   port: 8888
+
